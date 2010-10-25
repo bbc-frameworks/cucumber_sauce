@@ -1,19 +1,31 @@
-Feature: As a user, I want search results returned
+Feature: As a developer, I want widgets which pass their unit tests
 
-Scenario Outline: Return Search Results for a term
-Given I am on the Google Homepage
-When I enter a "<term>"
-Then the search results should include "<result>"  
+Scenario Outline: Widgets pass their unit tests
+Given I am on the "<widget>" qunit test page
+Then the qunit tests should pass
 
-Examples: Correct Results
-    | term   | result  |
-    | banana | fruit   |
-    | cheese | Cheddar |
+Examples: Jquery UI Widgets
+    | widget       |
+    | accordion    |
+    | autocomplete |
+    | button       |
+    | core         |
+    | datepicker   |
+    | dialog       |
+    | draggable    |
+    | droppable    |
+    | position     |
+    | progressbar  |
+    | resizable    |
+    | selectable   |
+    | slider       |
+    | sortable     |
+    | tabs         |
+    | widget       |
 
-Examples: Incorrect Results
-    | term   | result           |
-    | banana | Jim Hacker       |
-    | cheese | Humphrey Appleby |
-    | steak  | Bernard Woolley  |
+
+# Examples: Gel Widgets
+#     | widget       |
+#     | gelcore      |
 
 
