@@ -25,7 +25,7 @@ Examples: Jquery UI Widgets
 
 
 # Examples: Gel Widgets
-#     | widget       |
-#     | gelcore      |
+    | widget        |
+    | gelmodal      |
 
 

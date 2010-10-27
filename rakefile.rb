@@ -5,8 +5,13 @@ require 'parallel'
 require 'yaml'
 
 
-@local_browser = ENV['LOCAL_BROWSER'] || false
-@selenium_rc = ENV['SELENIUM_RC'] || 'saucelabs.com'
+if ENV['SELENIUM_RC']
+  @selenium_rc = ENV['SELENIUM_RC']
+  @local_browser = 'true'
+else
+  @selenium_rc = 'saucelabs.com'
+  @local_browser = 'false'
+end
 
 
 # Edit the browser yaml file to specify which os/browsers you want to use
@@ -29,7 +34,7 @@ task :cucumber_sauce do
       ENV['SELENIUM_BROWSER_VERSION'] = browser[:version]
       ENV['SELENIUM_REPORT_FILENAME'] = "#{dir}/#{year}-#{month}-#{day}-#{browser[:os]}_#{browser[:name]}_#{browser[:version]}.html".gsub(/\s/, "_").gsub("..", ".")
       
-      ENV['LOCAL_BROWSER'] = @local_browser if @local_browser
+      ENV['LOCAL_BROWSER'] = @local_browser if @local_browser == 'true'
       ENV['SELENIUM_RC'] = @selenium_rc if @selenium_rc
       
       year, month, day = Date.today.strftime("%Y,%m,%d").split(",")

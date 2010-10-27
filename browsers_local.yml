@@ -1,0 +1,5 @@
+:browsers: 
+- :os: OS X
+  :name: '*firefox'
+  :version: "3."
+  

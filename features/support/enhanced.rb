@@ -11,7 +11,7 @@ config = {
   :os =>       ENV['SELENIUM_BROWSER_OS'],
   :browser =>  ENV['SELENIUM_BROWSER_NAME'],
   :version =>  ENV['SELENIUM_BROWSER_VERSION'],
-  :host =>     ENV['SELENIUM_HOST'] || "http://google.com",
+  :host =>     ENV['SELENIUM_HOST'] || "http://localhost",
   :username => ondemand['username'],
   :api_key =>  ondemand['api_key']
 }
@@ -35,7 +35,7 @@ Before do |scenario|
   job_name = "#{outline.name.capitalize}: #{scenario.name}"
 
   if local_browser
-    browser_config = local_browser
+    browser_config = config[:browser]
   else
     browser_config = {
       "username" => config[:username],
